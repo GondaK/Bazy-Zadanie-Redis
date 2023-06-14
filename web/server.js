@@ -123,6 +123,54 @@ app.post('/car/:id/vote', function(req, res) {
   });
 });
 
+// Dodawanie przykładowych samochodów
+app.post('/populate', (req, res) => {
+    const cars = [
+      {
+        id: 'ford_fiesta',
+        brand: 'Ford',
+        model: 'Fiesta MK8',
+        engine: '1.4 TDI',
+        airConditioning: 'automatic'
+      },
+      {
+        id: 'bmw_3_series',
+        brand: 'BMW',
+        model: '3 Series',
+        engine: '2.0 Turbo',
+        airConditioning: 'automatic'
+      },
+      {
+        id: 'audi_a4',
+        brand: 'Audi',
+        model: 'A4',
+        engine: '2.0 TFSI',
+        airConditioning: 'automatic'
+      },
+      {
+        id: 'volkswagen_golf',
+        brand: 'Volkswagen',
+        model: 'Golf',
+        engine: '1.6 TDI',
+        airConditioning: 'automatic'
+      },
+      {
+        id: 'mercedes_c_class',
+        brand: 'Mercedes-Benz',
+        model: 'C-Class',
+        engine: '2.0 Turbo',
+        airConditioning: 'automatic'
+      }
+    ];
+  
+    cars.forEach((car) => {
+      const carData = JSON.stringify(car);
+      client.set(car.id, carData);
+    });
+  
+    res.send('Przykładowe samochody zostały dodane.');
+  });
+
 app.listen(5000, function() {
     console.log('Web application is listening on port 5000');
 });
