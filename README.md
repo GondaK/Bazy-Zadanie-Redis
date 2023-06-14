@@ -75,3 +75,22 @@ Body:
   "vote": "+"
 }
 ```
+
+### Populowanie przykładowymi danymi
+
+**Endpoint:** `POST /populate`
+
+Ta metoda API służy do populowania aplikacji przykładowymi danymi samochodów. Po wywołaniu tej metody, zostanie dodanych kilka przykładowych samochodów do bazy danych Redis.
+
+Przykładowe żądanie:
+```
+POST http://localhost/populate
+```
+
+Po wykonaniu żądania, aplikacja doda następujące przykładowe samochody do bazy danych Redis:
+- Ford Fiesta MK8
+- BMW 3 Series
+- Audi A4
+- Volkswagen Golf
+- Mercedes-Benz C-Class
+
